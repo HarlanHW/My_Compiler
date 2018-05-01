@@ -25,10 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        widget.cpp
+        widget.cpp \
+    lexanalyzer.cpp \
+    sunit.cpp \
+    symtable.cpp \
+    grammer.cpp \
+    treenode.cpp \
+    vtable.cpp
 
 HEADERS += \
-        widget.h
+        widget.h \
+    lexanalyzer.h \
+    sunit.h \
+    symtable.h \
+    grammer.h \
+    treenode.h \
+    vtable.h
 
 FORMS += \
         widget.ui
