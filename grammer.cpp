@@ -1,4 +1,4 @@
-#include"grammer.h"
+#include "grammer.h"
 #include<stack>
 #include <string.h>
 string strTokens[tokenNum + LeftS + 3] = {

@@ -1,4 +1,4 @@
-#include "lexAnalyzer.h"
+#include "lexanalyzer.h"
 #include <QDebug>
 LexAnalyzer::LexAnalyzer(){
 }
@@ -442,7 +442,7 @@ int LexAnalyzer::analyze(string fillName)
         s[i]=fillName[i];
     }
     s[i]='\0';
-    qDebug()<<s;
+    //qDebug()<<s;
     if ((source = fopen(s, "r")) == NULL)
     {
         return -1;
@@ -463,3 +463,4 @@ int LexAnalyzer::analyze(string fillName)
     fclose(target);
     return states;
 }
+

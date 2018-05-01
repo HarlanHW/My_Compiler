@@ -2,13 +2,11 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QString>
-#include <QTextStream>
-#include <QDateTime>
 #include "lexanalyzer.h"
-//#include "grammer.h"
+#include "grammer.h"
+#include "generate.h"
+#include "fourformat.h"
+
 #define LEX_FILE "target.txt"
 #define GRAM_FILE "target2.txt"
 namespace Ui {
@@ -28,11 +26,13 @@ public:
 private slots:
     void on_pushButton_input_clicked();
 
-    void on_textEdit_info_textChanged();
-
     void on_pushButton_lex_clicked();
 
     void on_pushButton_gram_clicked();
+
+    void on_pushButton_format_clicked();
+
+    void on_pushButton_runall_clicked();
 
 private:
     Ui::Widget *ui;

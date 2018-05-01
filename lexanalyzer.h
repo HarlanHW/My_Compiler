@@ -1,3 +1,5 @@
+#ifndef LEXANALYZER_H
+#define LEXANALYZER_H
 #pragma once
 #include<string>
 #include<stdio.h>
@@ -60,3 +62,6 @@ private:
     void addNewLine();
     int startScanner();
 };
+
+
+#endif // LEXANALYZER_H

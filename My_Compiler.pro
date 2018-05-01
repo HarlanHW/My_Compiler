@@ -27,20 +27,22 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     lexanalyzer.cpp \
-    sunit.cpp \
     symtable.cpp \
     grammer.cpp \
     treenode.cpp \
-    vtable.cpp
+    vtable.cpp \
+    generate.cpp \
+    fourformat.cpp
 
 HEADERS += \
         widget.h \
     lexanalyzer.h \
-    sunit.h \
     symtable.h \
     grammer.h \
     treenode.h \
-    vtable.h
+    vtable.h \
+    generate.h \
+    fourformat.h
 
 FORMS += \
         widget.ui

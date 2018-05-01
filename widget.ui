@@ -281,6 +281,19 @@
     <string>目标代码</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_runall">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>0</y>
+     <width>70</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>一键完成</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

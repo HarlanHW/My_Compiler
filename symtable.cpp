@@ -1,5 +1,10 @@
+#ifndef SYSTABLE_H
+#define SYSTABLE_H
+#pragma once
+
 #include "symtable.h"
-#include "string.h"
+
+using namespace std;
 SymTable::SymTable()
 {
     sHead = sTail = new SUnit();
@@ -34,3 +39,6 @@ void SymTable::clear()
     }
     sTail = sHead;
 }
+
+#endif // SYSTABLE_H
+
