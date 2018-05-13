@@ -32,7 +32,8 @@ SOURCES += \
     treenode.cpp \
     vtable.cpp \
     generate.cpp \
-    fourformat.cpp
+    fourformat.cpp \
+    object.cpp
 
 HEADERS += \
         widget.h \
@@ -42,7 +43,8 @@ HEADERS += \
     treenode.h \
     vtable.h \
     generate.h \
-    fourformat.h
+    fourformat.h \
+    object.h
 
 FORMS += \
         widget.ui

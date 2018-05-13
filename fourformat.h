@@ -6,7 +6,9 @@
 #include <cassert>
 #include <string>
 #include <vector>
-#define StartAddr 100  //程序的入口地址
+#include <QDebug>
+#include <iostream>
+#define StartAddr 0  //程序的入口地址
 #define MAX 100        //标号个数
 #define FILEIN "generate.txt"
 #define FILEOUT "format.txt"
@@ -111,6 +113,7 @@ public:
         stringstream ss;
 
         if(v[0]=="goto"){ //goto语句，直接jump，生成addr (j,-,-,jaddr)的格式
+            qDebug()<<QString::fromStdString(v[0])<<QString::fromStdString(v[1]);
             string temp=v[1]+":";
             for(i=0;i<=cnt;i++){
                 if(temp==labellist[i].Lname){

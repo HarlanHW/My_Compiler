@@ -37,7 +37,7 @@ void Widget::on_pushButton_input_clicked()
     }
 
     QTextStream file(&source);
-    this->ui->textEdit_source->setFont(QFont("微软雅黑",15));
+    this->ui->textEdit_source->setFont(QFont("consolas",15));
     this->ui->textEdit_source->setText(file.readAll());
     this->ui->textEdit_info->setText(log_info);
     //this->ui->textEdit->setFont(QFont("微软雅黑",20));
@@ -78,7 +78,7 @@ void Widget::on_pushButton_lex_clicked()
             //QMessageBox::warning(this,tr("Error"),
                                 //tr("read file error"));
         QTextStream file_t(&target);
-        this->ui->textEdit_lex->setFont(QFont("微软雅黑",15));
+        this->ui->textEdit_lex->setFont(QFont("consolas",13));
         this->ui->textEdit_lex->setText(file_t.readAll());
         target.close();
         log_info=log_info+QDateTime::currentDateTime().toString()+" 词法分析完成\n";
@@ -94,7 +94,7 @@ void Widget::on_pushButton_lex_clicked()
                 //QMessageBox::warning(this,tr("Error"),
                                      //tr("read file error"));
         QTextStream file_s(&symbol);
-        this->ui->textEdit_table->setFont(QFont("微软雅黑",20));
+        this->ui->textEdit_table->setFont(QFont("consolas",15));
         this->ui->textEdit_table->setText(file_s.readAll());
         symbol.close();
 
@@ -134,11 +134,12 @@ void Widget::on_pushButton_gram_clicked()
             QMessageBox::warning(this,tr("Error"),tr("Error"));
         }
         QTextStream file(&target);
-        this->ui->textEdit_gram->setFont(QFont("微软雅黑",10));
+        this->ui->textEdit_gram->setFont(QFont("consolas",13));
         this->ui->textEdit_gram->setText(file.readAll());
         target.close();
         log_info=log_info+QDateTime::currentDateTime().toString()+" 语法分析完成\n";
         this->ui->textEdit_info->setText(log_info);
+
         QFile symbol("symbol.txt");
         if(!symbol.open(QFile::ReadOnly|QFile::Text))
         {
@@ -148,7 +149,7 @@ void Widget::on_pushButton_gram_clicked()
             QMessageBox::warning(this,tr("Error"),tr("Error"));
         }
         QTextStream file_s(&symbol);
-        this->ui->textEdit_table->setFont(QFont("微软雅黑",20));
+        this->ui->textEdit_table->setFont(QFont("consolas",15));
         this->ui->textEdit_table->setText(file_s.readAll());
         log_info=log_info+QDateTime::currentDateTime().toString();
         log_info+=" 符号表更新完成\n";
@@ -163,7 +164,7 @@ void Widget::on_pushButton_format_clicked()
     gram_a->analyze(LEX_FILE);
     Generate *gene_a=new Generate(gram_a->grammerTree);
     int n=gene_a->analyse();
-    qDebug()<<n;
+    //qDebug()<<n;
     if(n<0)
     {
         log_info=log_info+QDateTime::currentDateTime().toString()+" 中间代码生成错误, ";
@@ -181,13 +182,31 @@ void Widget::on_pushButton_format_clicked()
             ;
         }
         QTextStream file_s(&gene_file);
-        this->ui->textEdit_format->setFont(QFont("微软雅黑",20));
+        this->ui->textEdit_format->setFont(QFont("consolas",15));
         this->ui->textEdit_format->setText(file_s.readAll());
         gene_file.close();
 
 
         log_info=log_info+QDateTime::currentDateTime().toString()+" 中间代码生成完成\n";
         this->ui->textEdit_info->setText(log_info);
+        QString table="";
+        for(int i=0;i<gene_a->namelist.size();i++)
+        {
+            table=table+QString::fromStdString(gene_a->namelist[i]);
+            table=table+"\n";
+        }
+        this->ui->textEdit_table->setFont(QFont("consolas",15));
+        this->ui->textEdit_table->setText(table);
+        QFile obj_table("obj_table.txt");
+        if(!obj_table.open(QFile::WriteOnly|QFile::Text))
+               qDebug()<<"error";
+        QTextStream file_obj(&obj_table);
+        file_obj<<table;
+        obj_table.close();
+
+
+            //qDebug()<<s;
+        //}
     }
 }
 
@@ -199,4 +218,22 @@ void Widget::on_pushButton_runall_clicked()
     on_pushButton_lex_clicked();
     on_pushButton_gram_clicked();
     on_pushButton_format_clicked();
+    on_pushButton_targin_clicked();
+
+}
+
+void Widget::on_pushButton_targin_clicked()
+{
+    object ob_a;
+    ob_a.get_format();
+    ob_a.object_code();
+    QFile target("target.asm");
+    if(!target.open(QFile::ReadOnly|QFile::Text))
+           qDebug()<<"error";
+    QTextStream out_t(&target);
+    this->ui->textEdit_targin->setFont(QFont("consolas",15));
+    this->ui->textEdit_targin->setText(out_t.readAll());
+    log_info=log_info+QDateTime::currentDateTime().toString();
+    log_info+=" 目标代码生成完成\n";
+    this->ui->textEdit_info->setText(log_info);
 }

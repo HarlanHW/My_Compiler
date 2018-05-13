@@ -130,9 +130,9 @@
   <widget class="QTextEdit" name="textEdit_format">
    <property name="geometry">
     <rect>
-     <x>720</x>
+     <x>790</x>
      <y>340</y>
-     <width>301</width>
+     <width>231</width>
      <height>271</height>
     </rect>
    </property>
@@ -142,7 +142,7 @@
     <rect>
      <x>20</x>
      <y>340</y>
-     <width>201</width>
+     <width>181</width>
      <height>271</height>
     </rect>
    </property>
@@ -150,9 +150,9 @@
   <widget class="QTextEdit" name="textEdit_gram">
    <property name="geometry">
     <rect>
-     <x>239</x>
+     <x>219</x>
      <y>340</y>
-     <width>461</width>
+     <width>551</width>
      <height>271</height>
     </rect>
    </property>
@@ -246,7 +246,7 @@
   <widget class="QLabel" name="label_format">
    <property name="geometry">
     <rect>
-     <x>840</x>
+     <x>870</x>
      <y>310</y>
      <width>61</width>
      <height>20</height>

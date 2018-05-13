@@ -6,7 +6,7 @@
 #include "grammer.h"
 #include "generate.h"
 #include "fourformat.h"
-
+#include "object.h"
 #define LEX_FILE "target.txt"
 #define GRAM_FILE "target2.txt"
 namespace Ui {
@@ -33,6 +33,8 @@ private slots:
     void on_pushButton_format_clicked();
 
     void on_pushButton_runall_clicked();
+
+    void on_pushButton_targin_clicked();
 
 private:
     Ui::Widget *ui;

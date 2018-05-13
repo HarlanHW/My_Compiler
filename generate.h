@@ -15,12 +15,19 @@ class Generate
 {
 
 public:
+    vector <string> namelist;
+    int laberlist[3];
     Generate(treeNode *p);
     int init();
     int analyse();
     treeNode *Tree=NULL;
-    friend int Recursive(treeNode *Tree);
-    vector <QString> namelist;
+    int Recursive(treeNode *Tree);
+    int expresion(treeNode *p,int id);
+    int _indef(treeNode *p);
+    int _assign(treeNode *p);
+    int _else(treeNode *p);
+    int _while(treeNode *p);
+    int _if(treeNode *p);
 
 };
 
