@@ -435,7 +435,7 @@ int LexAnalyzer::startScanner()
 int LexAnalyzer::analyze(string fillName)
 {
     int states;
-    char s[256];
+    char s[512];
     int i;
     for(i=0;i<fillName.size();i++)
     {

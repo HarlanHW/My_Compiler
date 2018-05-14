@@ -317,22 +317,22 @@ int Generate::Recursive(treeNode *p)
         _assign(p);
         flag=0;
         break;
-//case WHILESEN:
-//    flag=0;
-//    _while(p);
-//    break;
-       case IFSEN:
-           _if(p);
-           flag=0;
-           break;
-       case INNERVARIDEF:
-           _indef(p);
-           flag=0;
-           break;
-     case SENBLOCK:
+    case WHILESEN:
+        flag=0;
+        _while(p);
+        break;
+    case IFSEN:
+        _if(p);
+        flag=0;
+        break;
+    case INNERVARIDEF:
+        _indef(p);
+        flag=0;
+        break;
+    case SENBLOCK:
     //gtable.newLevel();
         Recursive(p->sonNode);
-//    //gtable.backLevel();
+    //gtable.backLevel();
         flag=0;
         break;
     default:

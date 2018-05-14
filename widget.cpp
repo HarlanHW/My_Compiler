@@ -47,14 +47,23 @@ void Widget::on_pushButton_input_clicked()
 
 void Widget::on_pushButton_lex_clicked()
 {
-    LexAnalyzer lex_a;
-    //qDebug()<<path_source;
-    int n=lex_a.analyze(source_path.toStdString());
 
+    LexAnalyzer lex_a;
+    int i=0;
+    for(i=source_path.size()-1;i>0;i--)
+    {
+        if(source_path[i]=='/')
+            break;
+    }
+    source_path.remove(0,i+1);
+    int n=lex_a.analyze(source_path.toStdString());
+    //qDebug()<<source_path;
     if(n<0)
     {
         log_info+=QDateTime::currentDateTime().toString();
-        log_info+=" 词法分析错误 ,打开文件失败\n";
+        log_info+=" error:";
+        log_info+=QString::number(n,10);
+        log_info+=" 词法分析错误 ,打开源代码失败\n";
         this->ui->textEdit_info->setText(log_info);
         //QMessageBox::warning(this,tr("Error"),tr("Error"));
     }

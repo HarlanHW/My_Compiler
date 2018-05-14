@@ -152,8 +152,8 @@ int object::object_code()
                 //   <<temp.op3.toStdString().c_str()<<endl;
                 new_reg.name_id=namelist.indexOf(temp.op3);
                 new_reg.value=temp.op1.toInt();
-                cout<<namelist.size()<<endl;
-                cout<<new_reg.name_id<<" "<<new_reg.value<<endl;
+                //cout<<namelist.size()<<endl;
+                //cout<<new_reg.name_id<<" "<<new_reg.value<<endl;
                 if(next_reg>=31)
                     next_reg=1;
                 reg_list[next_reg]=new_reg;
